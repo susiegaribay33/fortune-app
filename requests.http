@@ -2,3 +2,6 @@ GET http://localhost:3000/random_fortune.json
 ###
 
 GET http://localhost:3000/lotto_numbers.json 
+###
+
+GET http://localhost:3000/bottles_lyrics.json 

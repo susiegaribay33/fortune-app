@@ -13,6 +13,29 @@ class MyExamplesController < ApplicationController
     end
     render json: {lotto_numbers: "#{lotto_numbers}"}
   end
-  
+
+  def bottles_lyrics
+    count = 99
+    full_lyrics = ""
+    100.times do
+      if count >= 3
+        full_lyrics << "#{count} bottles of beer on the wall, #{count} bottles of beer.
+        Take one down and pass it around, #{count - 1} bottles of beer on the wall. "
+        count = count - 1
+      elsif count == 2
+        full_lyrics << "#{count} bottles of beer on the wall, #{count} bottles of beer.
+        Take one down and pass it around, #{count - 1} bottle of beer on the wall. "
+        count = count - 1
+      elsif count == 1
+        full_lyrics << "#{count} bottles of beer on the wall, #{count} bottles of beer.
+        Take one down and pass it around, no more bottles of beer on the wall. "
+        count = count - 1
+      elsif count == 0
+        full_lyrics << "No more bottles of beer on the wall, no more bottles of beer.
+        Go to the store and buy some more, 99 bottles of beer on the wall. "
+      end
+    end
+    render json: {lyrics: full_lyrics}
+  end
 
 end
